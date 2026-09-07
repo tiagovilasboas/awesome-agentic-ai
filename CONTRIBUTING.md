@@ -38,7 +38,7 @@ Also required:
 
 - Duplicate of an existing `README.md` entry (search first).
 - Unmaintained, archived, or undocumented repos.
-- Vendor landing pages, “generate code faster” tutorials, or infinite MCP server dumps (point at a **curated catalog** instead, the way this list already links [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)).
+- Anything listed under **Rejected / out of scope** in `README.md` (vendor landings, “generate code faster” tutorials, infinite MCP dumps, star-count lists, paywalled pitches, prompt galleries, dead URLs). Point at a **curated catalog** instead — this list already links [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers).
 - Frameworks whose only value is abstraction, with no pattern, contract, or ops evidence.
 - Self-promo with no public artifact a reviewer can verify.
 - New categories in the same PR as a nomination. Categorization changes are a **separate** pull request.
@@ -53,7 +53,7 @@ cd awesome-agentic-ai
 git checkout -b add-<short-slug>
 ```
 
-Edit `README.md` only. Add the entry at the **bottom of the existing section** that fits (Standards & foundations, Design patterns, MCP catalogs, Multi-agent & harness, Related). Do not invent a section in a nomination PR.
+Edit `README.md` only. Add the entry at the **bottom of the existing section** that fits (MCP, Patterns & harness, HITL & ops, AppSec / agent security, Related). Do not invent a section in a nomination PR. Do not add rows to **Rejected / out of scope** unless you are documenting a new refuse-class (separate PR).
 
 ```markdown
 - [Project Name](https://example.com/path) — One sentence: what decision this unlocks.
@@ -86,9 +86,14 @@ To propose a link **without** a patch, use the [Nominate a link](https://github.
 - [ ] Public URL; I opened it; it is not paywalled-only.
 - [ ] Maps to at least one criterion: scope · MCP/tools · HITL · evidence · vendor-agnostic.
 - [ ] Description says *why it is on the list*, starts with a capital, ends with a period.
-- [ ] Added at the bottom of an **existing** section; format matches neighbors.
+- [ ] Added at the bottom of an **existing** section (MCP · Patterns & harness · HITL & ops · AppSec / agent security · Related); format matches neighbors.
+- [ ] Not a class already listed under **Rejected / out of scope**.
 - [ ] Not a vendor pitch, not an unmaintained repo, not a tool dump.
 - [ ] PR is ready (not Draft / WIP). Title follows `Add Project Name`.
+
+## Maintainers
+
+When merging a curated change, bump **Last curated:** `YYYY-MM-DD` near the top of `README.md`. Nomination authors should not touch that line.
 
 ## Updating your pull request
 
