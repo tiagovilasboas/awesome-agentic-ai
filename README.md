@@ -1,6 +1,8 @@
 # Awesome Agentic AI [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-Staff-criteria links for running agents in production engineering — MCP, harnesses, HITL/ops, and agent security. An entry earns a place by changing a decision, not by star count.
+Most “awesome agent” pages are a dump. This is the short list I would actually send a teammate when we are deciding whether to add an MCP server, pick a harness, or put a human in the loop.
+
+An entry earns a place by changing a decision, not by star count. MCP, harnesses, HITL/ops, agent security.
 
 **Last curated:** 2026-09-07
 
@@ -9,9 +11,12 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 ## Contents
 
 - [Criteria (fail closed)](#criteria-fail-closed)
+- [How we curate](#how-we-curate)
+- [MCP host threat model](#mcp-host-threat-model)
 - [MCP](#mcp)
 - [Patterns & harness](#patterns--harness)
 - [HITL & ops](#hitl--ops)
+- [Cost / latency / evidence](#cost--latency--evidence)
 - [AppSec / agent security](#appsec--agent-security)
 - [Rejected / out of scope](#rejected--out-of-scope)
 - [Related (this org)](#related-this-org)
@@ -27,6 +32,14 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 | HITL | Writes de risco com humano | Risky writes need HITL |
 | Evidência | Logs, evals ou ADR | Logs, evals, or ADRs |
 | Agnóstico | Não é pitch de um vendor | Not a single-vendor pitch |
+
+## How we curate
+
+The fail-closed table is the gate. [How we curate](docs/how-we-curate.md) is the social contract: why a popular repo still gets a no, and how to read **Rejected** as classes rather than a dunk list. If you would not send the link to a teammate on a Thursday, do not nominate it.
+
+## MCP host threat model
+
+Adding a server is a host decision, not a catalog decision. [MCP host threat model](docs/mcp-host-threat-model.md) names assets, trust boundaries, the [lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/), and a PR checklist. It is a design-review template — not a production incident report from this repo.
 
 ## MCP
 
@@ -84,9 +97,23 @@ Risky writes pause for a human. If you cannot resume, trace, or eval the loop, i
 - [Ragas](https://github.com/vibrantlabsai/ragas) — Reference-and-reference-free metrics when the agent’s job is retrieval + grounded answers.
 - [OpenAI Evals](https://github.com/openai/evals) — Registry + harness for repeatable LLM/system evals you can fork without buying a platform.
 
+## Cost / latency / evidence
+
+This repo does not publish first-party production numbers. If you cannot trace or eval the loop, you cannot operate it — and you cannot tell whether a multi-agent design is worth the token bill.
+
+Use sources **already in this list** (no new dump):
+
+- **When multi-agent is even worth it** — [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (under Patterns & harness). Anthropic’s public write-up: token use dominates the score, and their published figures are ~4× tokens vs chat for agents and ~15× for multi-agent. Those are *theirs*, not a measurement from this repo. Coordination cost is the decision.
+- **Portable traces** — [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/), [GenAI agent spans](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/), [OpenLLMetry](https://github.com/traceloop/openllmetry). Prefer these over a private span schema.
+- **Inspectable UIs** — [Arize Phoenix](https://github.com/Arize-ai/phoenix), [Langfuse](https://github.com/langfuse/langfuse). Evidence that “it worked in staging” is a trace you can export, not a screenshot.
+- **Fail the build** — [Promptfoo](https://www.promptfoo.dev/), [Inspect](https://inspect.aisi.org.uk/), [DeepEval](https://github.com/confident-ai/deepeval), [Ragas](https://github.com/vibrantlabsai/ragas), [OpenAI Evals](https://github.com/openai/evals).
+- **Budgets are a control** — [AISVS C09](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md) (execution budgets, loop control, kill switch). A dashboard without a cap is not ops.
+
+A vendor latency graph with no method is Rejected. Nominate eval/trace *artifacts*, not vibes.
+
 ## AppSec / agent security
 
-Fail closed: if the agent can read private data, see untrusted tokens, *and* talk to the network, treat that as a design bug.
+Fail closed: if the agent can read private data, see untrusted content, *and* talk to the network, treat that as a design bug.
 
 - [OWASP AISVS](https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/) — Testable requirements (levels 1–3), including agentic orchestration and MCP chapters.
 - [AISVS C09 — Orchestration & agentic action](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md) — Controls for tool misuse, privilege, and cascading agent actions.
@@ -118,6 +145,8 @@ Examples of what we refuse, and why. Nominate none of these.
 | Self-promo with no inspectable artifact | Same as vendor pitch. Ship a spec, eval, or worked threat model first. |
 | Dead, archived, or unverified URLs | Fail closed on fetch. If we cannot open it, it does not ship. |
 | New categories bundled with a nomination | Process. Recategorization is a separate PR so the list stays reviewable. |
+| Cost/latency screenshots with no method or eval | Evidence gate. A dashboard PNG is not Inspect, OTel spans, or an ADR. |
+| “We ran this in prod” with no inspectable artifact | Evidence gate. This list does not take production claims on faith. |
 
 ## Related (this org)
 

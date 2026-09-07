@@ -4,6 +4,8 @@ This is a **curation, not a collection**. Prefer leaving something out over addi
 
 Read this file before opening a pull request. A PR should be **100% ready** when you open it. Do not open a Draft / WIP request while you figure out the format.
 
+For the judgment call behind these gates (why a popular repo still gets a no, how to read the Rejected table), see [docs/how-we-curate.md](docs/how-we-curate.md). If you are adding an MCP server — rare; catalogs already exist — read [docs/mcp-host-threat-model.md](docs/mcp-host-threat-model.md) first and attach the PR checklist.
+
 ## What this list is for
 
 Entries must help someone **decide** how to run agentic systems in real engineering — not collect every tool with an “agent” label.
@@ -53,7 +55,7 @@ cd awesome-agentic-ai
 git checkout -b add-<short-slug>
 ```
 
-Edit `README.md` only. Add the entry at the **bottom of the existing section** that fits (MCP, Patterns & harness, HITL & ops, AppSec / agent security, Related). Do not invent a section in a nomination PR. Do not add rows to **Rejected / out of scope** unless you are documenting a new refuse-class (separate PR).
+Edit `README.md` only. Add the entry at the **bottom of the existing section** that fits (MCP, Patterns & harness, HITL & ops, AppSec / agent security, Related). Do not invent a section in a nomination PR. Do **not** nominate into **Cost / latency / evidence** — that section only points at links already listed. Do not add rows to **Rejected / out of scope** unless you are documenting a new refuse-class (separate PR).
 
 ```markdown
 - [Project Name](https://example.com/path) — One sentence: what decision this unlocks.
@@ -87,8 +89,9 @@ To propose a link **without** a patch, use the [Nominate a link](https://github.
 - [ ] Maps to at least one criterion: scope · MCP/tools · HITL · evidence · vendor-agnostic.
 - [ ] Description says *why it is on the list*, starts with a capital, ends with a period.
 - [ ] Added at the bottom of an **existing** section (MCP · Patterns & harness · HITL & ops · AppSec / agent security · Related); format matches neighbors.
-- [ ] Not a class already listed under **Rejected / out of scope**.
+- [ ] Not a class already listed under **Rejected / out of scope** (see [docs/how-we-curate.md](docs/how-we-curate.md)).
 - [ ] Not a vendor pitch, not an unmaintained repo, not a tool dump.
+- [ ] If this is an MCP *server* (not a spec/catalog): I filled the checklist in [docs/mcp-host-threat-model.md](docs/mcp-host-threat-model.md).
 - [ ] PR is ready (not Draft / WIP). Title follows `Add Project Name`.
 
 ## Maintainers
