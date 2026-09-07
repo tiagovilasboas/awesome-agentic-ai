@@ -1,0 +1,82 @@
+name: Nominate a link
+description: Propose one resource for this curated list. Same fail-closed gates as a pull request.
+title: "Nominate: "
+labels:
+  - nomination
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One URL per issue. Read [CONTRIBUTING.md](../CONTRIBUTING.md) first.
+        This list is a **curation, not a collection**. Prefer leaving a weak link out.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Public page a reviewer can open without a paywall.
+      placeholder: https://
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Entry title
+      description: How it should appear in README.md.
+      placeholder: Project Name
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Existing README section
+      description: Nominations go under a section that already exists. New sections are a separate PR.
+      options:
+        - Standards & foundations
+        - Design patterns
+        - MCP catalogs (curated, not infinite)
+        - Multi-agent & harness
+        - Related (this org)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: criterion
+    attributes:
+      label: Primary fail-closed criterion
+      description: Must map to at least one README criterion.
+      options:
+        - Scope — clear agent / workflow / harness responsibility
+        - Tools / MCP — contracted tools, or MCP host/client/server primitives
+        - HITL — risky writes have a human checkpoint
+        - Evidence — logs, evals, ADRs, spec, or inspectable example
+        - Agnostic — not a single-vendor pitch
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this belongs
+      description: One or two sentences. What decision does this help a reader make? Not a tagline.
+      placeholder: Helps a squad choose X when Y, because Z (spec / eval / pattern).
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Gates
+      options:
+        - label: I searched README.md; this is not a duplicate.
+          required: true
+        - label: The URL is public and I opened it.
+          required: true
+        - label: This is not a vendor landing page or “generate code faster” tutorial.
+          required: true
+        - label: I can personally recommend this, or I cite inspectable evidence above.
+          required: true
+        - label: I read CONTRIBUTING.md.
+          required: true

@@ -63,11 +63,9 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 
 ---
 
-## Contribuir
+## Contributing
 
-1. PR com **1 item**, URL, 1 frase mapeada a um critério acima.
-2. PT ou EN.
-3. Sem auto-promoção vazia.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to nominate a link (one item per pull request).
 
 ## License
 
