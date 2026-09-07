@@ -32,10 +32,10 @@ body:
       label: Existing README section
       description: Nominations go under a section that already exists. New sections are a separate PR.
       options:
-        - Standards & foundations
-        - Design patterns
-        - MCP catalogs (curated, not infinite)
-        - Multi-agent & harness
+        - MCP
+        - Patterns & harness
+        - HITL & ops
+        - AppSec / agent security
         - Related (this org)
     validations:
       required: true
