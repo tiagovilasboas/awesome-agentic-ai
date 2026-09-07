@@ -1,8 +1,12 @@
 # Awesome Agentic AI
 
-**PT** · Curadoria **Staff** de Agentic AI: multi-agent, MCP, harness, HITL e ops — com critério, não dump de links.
+## Purpose / Propósito
 
-**EN** · Curated Agentic AI with **Staff criteria**: scopes, MCP, harnesses, HITL, agent ops — not link spam.
+**PT:** Ser a **lista viva com critério Staff** para quem opera agents em engenharia de verdade — multi-agent, MCP, harness, HITL e ops. Cada link entra porque **ajuda a decidir**, não porque tem estrela.
+
+**EN:** A **living, Staff-criteria list** for people who run agents in real engineering — multi-agent, MCP, harness, HITL, and ops. Links earn a place by helping you **decide**, not by star count.
+
+**Não é / Not:** dump de tools, marketing de vendor, tutorial “gera código mais rápido”.
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI · AppSec · Observability
 
@@ -10,50 +14,61 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 
 ## Critério / Criteria (fail closed)
 
-Incluímos só o que ajuda um time a **operar agents em produção de engenharia**:
-
 | Critério | PT | EN |
 |---|---|---|
 | Escopo | Agent com responsabilidade clara | Clear agent scope |
 | Tools | MCP / tools com contrato | Contracted tools / MCP |
-| HITL | Writes de risco com humano | Risky writes need human-in-the-loop |
+| HITL | Writes de risco com humano | Risky writes need HITL |
 | Evidência | Logs, evals ou ADR | Logs, evals, or ADRs |
-| Agnóstico | Não é marketing de um vendor | Not a single-vendor pitch |
-
-Fora: tutoriais "gera código mais rápido", hype sem trade-off, IP de cliente.
+| Agnóstico | Não é pitch de um vendor | Not a single-vendor pitch |
 
 ---
 
-## Conteúdo (WIP)
+## Standards & foundations
 
-### Frameworks & runtimes
-- _PRs welcome_ — frameworks multi-agent com escopo e tools explícitos
+- [Model Context Protocol](https://modelcontextprotocol.io) — contrato aberto de tools/contexto
+- [MCP specification (org)](https://github.com/modelcontextprotocol) — spec + SDKs + registry
+- [MCP reference servers](https://github.com/modelcontextprotocol/servers) — implementações de referência
+- [AGENTS.md](https://agents.md/) — convenção aberta de instruções de projeto
+- [OWASP AISVS](https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/) — requisitos testáveis (agentic + MCP)
 
-### MCP & tool use
-- _PRs welcome_
+## Design patterns
 
-### Harness, HITL & governance
-- _PRs welcome_
+- [Building effective agents (Anthropic)](https://www.anthropic.com/engineering/building-effective-agents) — chaining, routing, orchestrator-workers, evaluator-optimizer, HITL
+- [claude-cookbooks / patterns/agents](https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents) — exemplos mínimos dos padrões
 
-### Observability & evals
-- Ver também: [agent-measurement](https://github.com/tiagovilasboas/agent-measurement)
+## MCP catalogs (curated, not infinite)
 
-### Architecture
+- [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) — formato de curadoria MCP
+- [mcpHQ/awesome-mcp-servers](https://github.com/mcpHQ/awesome-mcp-servers) — catálogo com tags/landscape
+
+## Multi-agent & harness
+
+- [rinadelph/Agent-MCP](https://github.com/rinadelph/Agent-MCP) — multi-agent + MCP + memória compartilhada
+- [Winder: agent harness comparison](https://winder.ai/ai-agent-harness-comparison/) — harness muda o score (ops)
+
+## Related (this org)
+
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
-
-### Code review & AppSec
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — medir, não treinar
 - [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — skills · runbooks · guardrails
 
 ---
 
-## Contribuir / Contributing
+## Inspired by / Anti-patterns
 
-1. Abra um PR com **1 item**, link, 1 frase de porquê (critério acima).
-2. Idioma: PT ou EN.
-3. Sem auto-promoção vazia.
+**Inspired by:** listas oficiais MCP + padrões Anthropic + AISVS como filtro de qualidade.
+
+**Avoid:** awesome com 300 links sem critério; “arquitetura” = um único IDE.
 
 ---
 
+## Contribuir
+
+1. PR com **1 item**, URL, 1 frase mapeada a um critério acima.
+2. PT ou EN.
+3. Sem auto-promoção vazia.
+
 ## License
 
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) — lista livre para a comunidade.
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/)
