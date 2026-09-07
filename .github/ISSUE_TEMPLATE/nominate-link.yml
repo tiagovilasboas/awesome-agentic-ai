@@ -1,8 +1,6 @@
 name: Nominate a link
 description: Propose one resource for this curated list. Same fail-closed gates as a pull request.
 title: "Nominate: "
-labels:
-  - nomination
 body:
   - type: markdown
     attributes:
