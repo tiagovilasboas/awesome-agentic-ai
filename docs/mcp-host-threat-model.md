@@ -6,6 +6,12 @@ It is a design-review artifact you can copy into a PR. It is **not** a claim tha
 
 If you are adding a new MCP server (to a product, or as a rare nomination on this list), walk the checklist at the bottom before the tool dump lands in context.
 
+## Protocol vintage
+
+Pin the spec date the host speaks. The [2026-07-28 revision](https://blog.modelcontextprotocol.io/posts/2026-07-28/) retired `initialize` / `Mcp-Session-Id` and deprecated sampling, roots, protocol logging, and HTTP+SSE.
+
+If you still speak an older revision, the session-ID and handle rows below still apply. They are not a reason to reintroduce protocol sessions on a new host. Do not adopt sampling as an orchestrator — keep model invocation in the host. Cross-call state belongs in an explicit tool handle, not a transport session (same official note).
+
 ## Assets
 
 What the host is actually holding. If you cannot name these, you do not have a model.
@@ -82,6 +88,7 @@ From the official MCP security doc, plus orchestration controls. Use these names
 | Tool-list drift / rug pull | Server changes a tool schema after install | Snapshot definitions; re-consent on change ([AISVS 10.4.8](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C10-MCP-Security.md), level 3) |
 | Excessive agency | Model chooses a high-impact write | HITL with full canonical args ([AISVS 9.2](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md)); elicitation belongs in the [protocol](https://modelcontextprotocol.io/specification/latest/client/elicitation) |
 | Cross-server bleed | Untrusted output from server A becomes args to server B | Isolate untrusted processors from write tools ([AISVS 9.3.5](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md)) |
+| Deprecated sampling-as-orchestrator | Server asks the host LLM to think; untrusted tool text becomes a nested agent | Do not adopt on 2026-07-28+; keep model invocation in the host |
 
 Deeper checklists: [OWASP MCP Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html), [OWASP Top 10 for Agentic Applications (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/).
 
@@ -141,6 +148,8 @@ A single server that cannot pass this list does not belong in a host, and it doe
 ## Sources (public)
 
 - [MCP architecture](https://modelcontextprotocol.io/docs/latest/learn/architecture) — host / client / server.
+- [Transports](https://modelcontextprotocol.io/specification/latest/basic/transports) · [Streamable HTTP](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http) — stdio vs per-request POST; Origin / localhost.
+- [The 2026-07-28 specification](https://blog.modelcontextprotocol.io/posts/2026-07-28/) — stateless core; sampling / HTTP+SSE deprecated.
 - [MCP security best practices](https://modelcontextprotocol.io/docs/latest/tutorials/security/security_best_practices) — confused deputy, passthrough, SSRF, handles, local compromise.
 - [MCP authorization](https://modelcontextprotocol.io/specification/latest/basic/authorization) — OAuth 2.1 resource server.
 - [The lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — Willison.

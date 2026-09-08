@@ -46,6 +46,7 @@ If you want a new row, write it so a tired reviewer can apply it at 6pm: one cla
 - **Framework-only abstraction.** If the only value is a wrapper around a pattern the Anthropic [effective agents](https://www.anthropic.com/engineering/building-effective-agents) post already named, link the pattern, not the wrapper.
 - **Harness as brand.** A harness comparison that is a feature matrix with no sandbox, cost, or ops story is a catalog. We already have [Winder](https://winder.ai/ai-agent-harness-comparison/) for the matrix; we need evidence for the rest.
 - **Security theater.** A “guardrail” that does not change tool reach, token audience, or HITL is not a control. Point at AISVS / trifecta / the host model instead.
+- **Deprecated MCP as current.** HTTP+SSE and sampling-as-orchestrator posts still circulate. Point at the dated spec and the [2026-07-28 note](https://blog.modelcontextprotocol.io/posts/2026-07-28/), not a 2025 tutorial.
 - **Cost and latency as vibes.** A dashboard screenshot is not [Inspect](https://inspect.aisi.org.uk/) or an OTel span. See the README **Cost / latency / evidence** section — it points at links we already curate. It is not a new dumping ground.
 
 ## Process that keeps the list reviewable
