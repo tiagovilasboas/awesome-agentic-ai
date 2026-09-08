@@ -48,6 +48,7 @@ If you want a new row, write it so a tired reviewer can apply it at 6pm: one cla
 - **Security theater.** A “guardrail” that does not change tool reach, token audience, or HITL is not a control. Point at AISVS / trifecta / the host model instead.
 - **Deprecated MCP as current.** HTTP+SSE and sampling-as-orchestrator posts still circulate. Point at the dated spec and the [2026-07-28 note](https://blog.modelcontextprotocol.io/posts/2026-07-28/), not a 2025 tutorial.
 - **Cost and latency as vibes.** A dashboard screenshot is not [Inspect](https://inspect.aisi.org.uk/) or an OTel span. See the README **Cost / latency / evidence** section — it points at links we already curate. It is not a new dumping ground.
+- **Context as a dump.** Pasting the wiki, every MCP schema, or last week’s transcript into the window is not engineering. The decision is the smallest high-signal set ([Anthropic](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)) plus a fail-closed assembly. Leave the rest out.
 
 ## Process that keeps the list reviewable
 
