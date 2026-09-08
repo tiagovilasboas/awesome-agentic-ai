@@ -72,6 +72,7 @@ Simple composable patterns first. A harness is the runtime around the model (loo
 - [claude-cookbooks / patterns/agents](https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents) — Minimal implementations of those patterns you can read in one sitting.
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) — Production lessons: when multi-agent pays off and where coordination cost dominates.
 - [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) — Own prompts, context, control flow, and pause/resume; treat HITL as a tool call.
+- [Effective context engineering for AI agents (Anthropic)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Treat the window as a finite attention budget: ship the smallest high-signal set, then pick compaction, structured notes, or sub-agents. Worked assembly (what enters, fail closed) lives in [grok-bot-architecture / context-engineering.md](https://github.com/tiagovilasboas/grok-bot-architecture/blob/main/docs/context-engineering.md).
 - [A practical guide to building agents (OpenAI)](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — When *not* to build an agent, plus guardrails and human escalation as design, not SDK lock-in.
 - [AGENTS.md](https://agents.md/) — Open convention for repo-level agent instructions; put scope in-tree, not only in a chat.
 - [Winder: AI agent harness comparison](https://winder.ai/ai-agent-harness-comparison/) — Side-by-side harness trade-offs (governance, sandbox, lock-in) so the runtime is a decision.
@@ -112,6 +113,7 @@ Use sources **already in this list** (no new dump):
 - **Inspectable UIs** — [Arize Phoenix](https://github.com/Arize-ai/phoenix), [Langfuse](https://github.com/langfuse/langfuse). Evidence that “it worked in staging” is a trace you can export, not a screenshot.
 - **Fail the build** — [Promptfoo](https://www.promptfoo.dev/), [Inspect](https://inspect.aisi.org.uk/), [DeepEval](https://github.com/confident-ai/deepeval), [Ragas](https://github.com/vibrantlabsai/ragas), [OpenAI Evals](https://github.com/openai/evals).
 - **Budgets are a control** — [AISVS C09](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md) (execution budgets, loop control, kill switch). A dashboard without a cap is not ops.
+- **Context is a budget** — [Effective context engineering for AI agents (Anthropic)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (under Patterns & harness). The window is an attention budget, not a wiki paste. Compaction vs notes vs sub-agents is the decision. This list does not publish window sizes.
 - **Measure the current transport** — [Transports](https://modelcontextprotocol.io/specification/latest/basic/transports) and the [2026-07-28 note](https://blog.modelcontextprotocol.io/posts/2026-07-28/). A latency graph that assumes a long-lived MCP session is measuring HTTP+SSE. Current Streamable HTTP is one POST per message; write down which revision you timed.
 
 A vendor latency graph with no method is Rejected. Nominate eval/trace *artifacts*, not vibes.
@@ -164,7 +166,7 @@ This list is the curated short list. Siblings are scoped kits — not production
 - [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec skills: runbooks and `path:line` guardrails.
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Architecture: brain · workers · ops (swap the host).
 - [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops.
-- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop multi-agent OS: chief-of-staff, specialists, shared computer.
+- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop multi-agent OS: chief-of-staff, specialists, shared computer. Worked window assembly: [context-engineering.md](https://github.com/tiagovilasboas/grok-bot-architecture/blob/main/docs/context-engineering.md).
 
 ## Contributing
 
