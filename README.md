@@ -158,17 +158,17 @@ Examples of what we refuse, and why. Nominate none of these.
 
 ## Related (this org)
 
-This list is the hub. Siblings are scoped kits — not production proof from this README.
+This list is the curated short list. Siblings are scoped kits — not production proof from this README.
 
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports. Measure; do not train.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
-- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
-- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop assistant OS: chief-of-staff, specialists, shared computer, connectors.
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports.
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec skills: runbooks and `path:line` guardrails.
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Architecture: brain · workers · ops (swap the host).
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops.
+- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop multi-agent OS: chief-of-staff, specialists, shared computer.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). One item per pull request. Map the URL to a criterion above. Prefer leaving a weak link out.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Agent notes: [AGENTS.md](AGENTS.md). One item per pull request. Map the URL to a criterion above. Prefer leaving a weak link out.
 
 ## License
 
