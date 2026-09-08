@@ -158,9 +158,13 @@ Examples of what we refuse, and why. Nominate none of these.
 
 ## Related (this org)
 
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Brain · workers · ops.
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Measure, do not train.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — Skills · runbooks · guardrails.
+This list is the hub. Siblings are scoped kits — not production proof from this README.
+
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports. Measure; do not train.
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
+- [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops. Kiro is the example host.
+- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop assistant OS: chief-of-staff, specialists, shared computer, connectors.
 
 ## Contributing
 
