@@ -4,7 +4,7 @@ Most “awesome agent” pages are a dump. This is the short list I would actual
 
 An entry earns a place by changing a decision, not by star count. MCP, harnesses, HITL/ops, agent security.
 
-**Last curated:** 2026-09-07
+**Last curated:** 2026-09-08
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI · AppSec · Observability
 
@@ -47,8 +47,12 @@ Open protocol for connecting an AI host to tools, resources, and prompts. Prefer
 
 - [Model Context Protocol](https://modelcontextprotocol.io) — Canonical intro: USB-C-style contract between hosts, clients, and servers.
 - [MCP specification (latest)](https://modelcontextprotocol.io/specification/latest) — Normative, versioned protocol; pin what you implement against this, not a blog.
+- [The 2026-07-28 specification](https://blog.modelcontextprotocol.io/posts/2026-07-28/) — Stateless core: no `initialize` / `Mcp-Session-Id`. Sampling, roots, protocol logging, and HTTP+SSE are deprecated. Read this before you copy a 2025 SDK sample.
 - [Architecture overview](https://modelcontextprotocol.io/docs/latest/learn/architecture) — Host / client / server split so you can place trust boundaries before adding tools.
+- [Transports](https://modelcontextprotocol.io/specification/latest/basic/transports) — stdio vs Streamable HTTP. Local subprocess is the user's process; remote is one POST per message. Pick the binding before you pick the server.
+- [Streamable HTTP](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http) — Current remote wire: single endpoint, per-request POST, `Mcp-Method` / `Mcp-Name` for gateways. Validate `Origin`; bind local HTTP to localhost. HTTP+SSE (2024-11-05) is deprecated.
 - [Tools](https://modelcontextprotocol.io/specification/latest/server/tools) — JSON-schema tool contract: names, arguments, and error shapes the model actually calls.
+- [Resources](https://modelcontextprotocol.io/specification/latest/server/resources) — URI-addressed context (files, schemas, tickets) the host can list and read. Prefer this over stuffing a wiki into the system prompt.
 - [Authorization](https://modelcontextprotocol.io/specification/latest/basic/authorization) — OAuth 2.1 resource-server rules; do not invent a custom token scheme.
 - [Security best practices](https://modelcontextprotocol.io/docs/latest/tutorials/security/security_best_practices) — Official attack-surface list (confused deputy, token passthrough, session IDs).
 - [Client best practices](https://modelcontextprotocol.io/docs/latest/develop/clients/client-best-practices) — How a host scales across many servers without a tool-soup context window.
@@ -108,6 +112,7 @@ Use sources **already in this list** (no new dump):
 - **Inspectable UIs** — [Arize Phoenix](https://github.com/Arize-ai/phoenix), [Langfuse](https://github.com/langfuse/langfuse). Evidence that “it worked in staging” is a trace you can export, not a screenshot.
 - **Fail the build** — [Promptfoo](https://www.promptfoo.dev/), [Inspect](https://inspect.aisi.org.uk/), [DeepEval](https://github.com/confident-ai/deepeval), [Ragas](https://github.com/vibrantlabsai/ragas), [OpenAI Evals](https://github.com/openai/evals).
 - **Budgets are a control** — [AISVS C09](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md) (execution budgets, loop control, kill switch). A dashboard without a cap is not ops.
+- **Measure the current transport** — [Transports](https://modelcontextprotocol.io/specification/latest/basic/transports) and the [2026-07-28 note](https://blog.modelcontextprotocol.io/posts/2026-07-28/). A latency graph that assumes a long-lived MCP session is measuring HTTP+SSE. Current Streamable HTTP is one POST per message; write down which revision you timed.
 
 A vendor latency graph with no method is Rejected. Nominate eval/trace *artifacts*, not vibes.
 
@@ -118,6 +123,7 @@ Fail closed: if the agent can read private data, see untrusted content, *and* ta
 - [OWASP AISVS](https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/) — Testable requirements (levels 1–3), including agentic orchestration and MCP chapters.
 - [AISVS C09 — Orchestration & agentic action](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C09-Orchestration-and-Agentic-Action.md) — Controls for tool misuse, privilege, and cascading agent actions.
 - [AISVS C10 — MCP security](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C10-MCP-Security.md) — Verification items specific to MCP identity, schema, and supply chain.
+- [OWASP MCP Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) — Short host/server controls (poisoned descriptions, rug pull, sandbox, token scope). Pair with AISVS C10; this is the pocket list, not a second standard.
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — Shared language for prompt injection, excessive agency, and insecure output handling.
 - [OWASP Top 10 for Agentic Applications (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — ASI01–ASI10 (goal hijack, tool misuse, identity abuse, MCP/A2A supply chain).
 - [Agentic AI Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) — Taxonomy to threat-model a loop before you write tools.
@@ -147,6 +153,8 @@ Examples of what we refuse, and why. Nominate none of these.
 | New categories bundled with a nomination | Process. Recategorization is a separate PR so the list stays reviewable. |
 | Cost/latency screenshots with no method or eval | Evidence gate. A dashboard PNG is not Inspect, OTel spans, or an ADR. |
 | “We ran this in prod” with no inspectable artifact | Evidence gate. This list does not take production claims on faith. |
+| HTTP+SSE or sampling-as-orchestrator sold as current MCP | Spec vintage. `2026-07-28` dropped protocol sessions and deprecated those surfaces. Link the current spec, not a 2025 copy-paste. |
+| Guardrail / scanner landing page as the control | Security theater. If it does not change tool reach, token audience, or drop a trifecta leg, it is not a control. |
 
 ## Related (this org)
 
