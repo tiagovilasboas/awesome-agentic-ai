@@ -1,0 +1,17 @@
+# Awesome Agentic AI
+
+> Curated short list for deciding MCP, harness, HITL, and agent security. Fail closed. Not a server dump.
+
+This repo is a recommendation, not a runtime. One URL per PR. Prefer leaving a weak link out. The Rejected table is refuse-classes, not a dunk list. Do not invent first-party production numbers.
+
+## Docs
+
+- [README](README.md): Curated list, fail-closed criteria, and the Rejected / out of scope table
+- [How we curate](docs/how-we-curate.md): Why a popular repo still gets a no
+- [MCP host threat model](docs/mcp-host-threat-model.md): Host-level design-review template and PR checklist
+- [Contributing](CONTRIBUTING.md): Nomination gates
+- [Agent notes](AGENTS.md): Layout and do/don't for agents
+
+## Optional
+
+- [Nominate a link](https://github.com/tiagovilasboas/awesome-agentic-ai/issues/new?template=nominate-link.yml): Issue form when you have a URL but no patch
