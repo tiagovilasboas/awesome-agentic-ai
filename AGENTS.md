@@ -18,6 +18,7 @@ scripts/                       relative-link + Rejected checks
 - Nominate one URL per PR into an existing section.
 - Map the URL to a fail-closed criterion (scope · tools/MCP · HITL · evidence · agnostic).
 - Prefer leaving a weak link out.
+- Keep **Rejected / out of scope** in README.md as refuse-classes (CI asserts a minimum row count).
 
 ## Don't
 
