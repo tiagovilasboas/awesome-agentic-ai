@@ -13,12 +13,12 @@ if [[ ! -f "${README}" ]]; then
   exit 1
 fi
 
-if ! grep -qxF "${HEADING}" "${README}"; then
+if ! grep -qxF -- "${HEADING}" "${README}"; then
   printf 'FAIL | README.md missing heading: %s\n' "${HEADING}" >&2
   exit 1
 fi
 
-if ! grep -qxF "${TOC}" "${README}"; then
+if ! grep -qxF -- "${TOC}" "${README}"; then
   printf 'FAIL | README.md Contents missing: %s\n' "${TOC}" >&2
   exit 1
 fi

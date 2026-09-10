@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Fail if a relative Markdown (or llms.txt) link does not exist on disk.
-# External URLs and same-file #anchors are skipped. No network fetch.
+# Scans README, docs, CONTRIBUTING, AGENTS, and llms.txt. External URLs,
+# same-file #anchors, and bare placeholders like (url) are skipped.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -16,17 +17,27 @@ fail() {
 is_skipped() {
   case "$1" in
     http://*|https://*|mailto:*|\#*) return 0 ;;
-    *) return 1 ;;
   esac
+  # Template placeholders: [Name](url)
+  if [[ "$1" =~ ^[A-Za-z0-9_-]+$ ]]; then
+    return 0
+  fi
+  return 1
 }
 
-# Print the URL/path inside each [label](target) on the file (single line).
 extract_targets() {
   grep -oE '\[[^][]+\]\([^()]+\)' "$1" | sed -E 's/^\[[^][]+\]\((.+)\)$/\1/' || true
 }
 
-while IFS= read -r file; do
-  rel="${file#./}"
+files=(README.md CONTRIBUTING.md AGENTS.md llms.txt)
+shopt -s nullglob
+files+=(docs/*.md)
+
+for rel in "${files[@]}"; do
+  if [[ ! -f "${rel}" ]]; then
+    fail "missing scan target: ${rel}"
+    continue
+  fi
   dir="$(dirname "${rel}")"
 
   while IFS= read -r raw || [[ -n "${raw}" ]]; do
@@ -47,8 +58,8 @@ while IFS= read -r file; do
     if [[ ! -e "${resolved}" ]]; then
       fail "${rel} -> ${target}"
     fi
-  done < <(extract_targets "${file}")
-done < <(find . -type f \( -name '*.md' -o -name 'llms.txt' \) ! -path './.git/*' | sort)
+  done < <(extract_targets "${rel}")
+done
 
 if (( failures > 0 )); then
   printf '\n%d broken relative link(s)\n' "${failures}" >&2
