@@ -1,0 +1,16 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Relative markdown links exist
+        run: bash scripts/check-md-links.sh
+      - name: Rejected table stays visible
+        run: bash scripts/check-rejected.sh

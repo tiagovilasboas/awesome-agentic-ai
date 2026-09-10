@@ -6,9 +6,11 @@ This repo is a **curated short list**, not a runtime. Humans: [CONTRIBUTING.md](
 
 ```text
 README.md                      curated list + fail-closed table
+llms.txt                       agent index (README + docs)
 docs/how-we-curate.md          why a popular repo still gets a no
 docs/mcp-host-threat-model.md  host-level design-review template
 CONTRIBUTING.md                nomination gates
+scripts/                       relative-link + Rejected checks
 ```
 
 ## Do
@@ -16,6 +18,7 @@ CONTRIBUTING.md                nomination gates
 - Nominate one URL per PR into an existing section.
 - Map the URL to a fail-closed criterion (scope · tools/MCP · HITL · evidence · agnostic).
 - Prefer leaving a weak link out.
+- Keep **Rejected / out of scope** in README.md as refuse-classes (CI asserts a minimum row count).
 
 ## Don't
 

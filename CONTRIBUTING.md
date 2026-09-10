@@ -98,6 +98,10 @@ To propose a link **without** a patch, use the [Nominate a link](https://github.
 
 When merging a curated change, bump **Last curated:** `YYYY-MM-DD` near the top of `README.md`. Nomination authors should not touch that line.
 
+CI runs `scripts/check-md-links.sh` on pull requests. A relative markdown (or `llms.txt`) link that does not exist on disk fails the build. Same-file `#` anchors and `http(s)` URLs are not fetched.
+
+`scripts/check-rejected.sh` fails if README loses **Rejected / out of scope** or drops below ten refuse-class rows. Do not delete that table to "clean up" the list.
+
 ## Updating your pull request
 
 Maintainers will ask for edits when the format, criterion, or evidence is short. That is normal.
