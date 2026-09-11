@@ -83,6 +83,7 @@ Simple composable patterns first. A harness is the runtime around the model (loo
 - [rinadelph/Agent-MCP](https://github.com/rinadelph/Agent-MCP) — Multi-agent loop with shared memory over MCP; inspect the contract, not the demo.
 - [LangGraph](https://github.com/langchain-ai/langgraph) — Low-level graph for durable, interruptible control flow you can own (read the runtime, skip the pitch).
 - [A2A Protocol](https://a2a-protocol.org/latest/) — Open inter-agent discovery and messaging; use when agents must collaborate across stacks.
+- [YYLO](https://github.com/yylo-dev/yylo) — Command-line orchestrator for coding agents with typed task, validation, merge, and release-readiness boundaries; the merge queue owns risk-based review.
 
 ## HITL & ops
 
