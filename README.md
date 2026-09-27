@@ -162,8 +162,8 @@ Examples of what we refuse, and why. Nominate none of these.
 
 This list is the curated short list. Siblings are scoped kits — not production proof from this README.
 
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec skills: runbooks and `path:line` guardrails.
+- [ai-agent-evals](https://github.com/tiagovilasboas/ai-agent-evals) — Evals: suites, named metrics, markdown reports.
+- [ai-code-review](https://github.com/tiagovilasboas/ai-code-review) — AppSec skills: runbooks and `path:line` guardrails.
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Architecture: brain · workers · ops (swap the host).
 - [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops.
 - [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop multi-agent OS: chief-of-staff, specialists, shared computer. Worked window assembly: [context-engineering.md](https://github.com/tiagovilasboas/grok-bot-architecture/blob/main/docs/context-engineering.md).
