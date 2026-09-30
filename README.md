@@ -162,7 +162,6 @@ Examples of what we refuse, and why. Nominate none of these.
 
 This list is the curated short list. Siblings are scoped kits — not production proof from this README.
 
-- [ai-agent-evals](https://github.com/tiagovilasboas/ai-agent-evals) — Evals: suites, named metrics, markdown reports.
 - [ai-code-review](https://github.com/tiagovilasboas/ai-code-review) — AppSec skills: runbooks and `path:line` guardrails.
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Architecture: brain · workers · ops (swap the host).
 - [kiro-crew](https://github.com/tiagovilasboas/kiro-crew) — Crew pattern: Planner → Implementer → Reviewer → Ops.
